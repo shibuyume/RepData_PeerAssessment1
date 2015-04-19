@@ -35,7 +35,7 @@ omitNAds[,2] <- as.Date(omitNAds[,2], format="%Y-%m-%d")
 <br>
 <br>Histogram: 
 
-![Total number of steps per day](total_number_steps.png)
+![Total number of steps per day](/figures/total_number_steps.png)
 
 ```
 steps_per_day <- aggregate(steps ~ date, omitNAds, sum)
