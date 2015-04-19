@@ -25,7 +25,7 @@ omitNAds[,2] <- as.Date(omitNAds[,2], format="%Y-%m-%d")
 <br>
 <br>Histogram: 
 
-![Total number of steps per day](/figure/total_number_steps.png)
+![Total number of steps per day](/figures/total_number_steps.png)
 
 ```
 steps_per_day <- aggregate(steps ~ date, omitNAds, sum)
@@ -46,7 +46,7 @@ steps_median <-median(steps_per_day$steps)
 
 <br>Line Graph: 
 
-![Total steps per interval](/figure/steps_per_interval.png)
+![Total steps per interval](/figures/steps_per_interval.png)
 
 ```
 steps_per_interval <- aggregate(steps ~ interval, omitNAds, mean)
@@ -78,7 +78,7 @@ new_steps_per_day <- aggregate(steps ~ interval, inputds, sum)
 
 <br> New histogram that shows old dataset with NA values on the left, and new dataset with filled values on the right. 
 
-![Old vs New Total No. of Steps](/figure/new_steps_per_day.png)
+![Old vs New Total No. of Steps](/figures/new_steps_per_day.png)
 
 <br>New mean is 2280.339
 <br>New median is 2080.906
@@ -118,7 +118,7 @@ colnames(inputds)[5] <- "typeofday"
 ```
 <br>Make panel plot that contains a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). 
 
-![Average No. of Steps (Weekday vs Weekend)](/figure/ave_step_weekdayend.png)
+![Average No. of Steps (Weekday vs Weekend)](/figures/ave_step_weekdayend.png)
 
 ```
 ###aggregate the weekday and weekend
