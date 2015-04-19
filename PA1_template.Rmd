@@ -17,7 +17,7 @@ echo = TRUE
 ```
 * <b>Dataset</b>: <a href="https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip">Activity Monitoring data</a> [52kb]
 
-
+## Loading and preprocessing the data
 * <b>Loading and preprocessing the data</b>
 Steps will omit "NA" and force the second column to be of date format. 
 
@@ -28,7 +28,7 @@ omitNAds <- na.omit(fullds)
 omitNAds[,2] <- as.Date(omitNAds[,2], format="%Y-%m-%d")
 ```
 
-
+## What is mean total number of steps taken per day?
 * <b>1. What is mean total number of steps taken per day?</b>
 <br>The mean total number of steps taken per day: 10766.19
 <br>The median total number of steps taken per day: 10765
@@ -50,7 +50,7 @@ steps_mean <-mean(steps_per_day$steps)
 steps_median <-median(steps_per_day$steps)
 ```
 
-
+## What is the average daily activity pattern?
 * <b>2. What is the average daily activity pattern?</b>
 <br>The 5-minute interval <u>835</u>, on average across all the days in the dataset, contains the max number of steps. 
 
@@ -68,6 +68,8 @@ plot(steps_per_interval, type = "l")
 max_interval <- steps_per_interval[which.max(steps_by_interval$steps),1]
 
 ```
+
+## Imputing missing values
 * <b>3. Imputing missing values</b>
 <br> Total number of missing values in dataset: 2304
 
@@ -90,6 +92,8 @@ new_steps_per_day <- aggregate(steps ~ interval, inputds, sum)
 
 ![Old vs New Total No. of Steps](/figures/new_steps_per_day.png)
 
+
+
 <br>New mean is 2280.339
 <br>New median is 2080.906
 
@@ -109,6 +113,8 @@ median(new_steps_per_day$steps)
 ```
 
 <br>The mean and median values are now different. Due to the availability of "more data" when the NA values are replaced, both the mean and median values have increased. Also, the shape of the distribution has changed and shifted to the left, leading to the mean and median values being quite a bit different from each other, as opposed to the original distribution that has the NA values ignored.
+
+## Are there differences in activity patterns between weekdays and weekends?
 
 * <b>4. Are there differences in activity patterns between weekdays and weekends?</b>
 <br>Create a new factor variable in the dataset 
@@ -143,21 +149,21 @@ qplot(interval, steps, data=steps_per_daytype, geom=c("line"), xlab="Interval",
 
 =======
 
-## Loading and preprocessing the data
 
 
 
-## What is mean total number of steps taken per day?
 
 
 
-## What is the average daily activity pattern?
 
 
 
-## Imputing missing values
 
 
 
-## Are there differences in activity patterns between weekdays and weekends?
+
+
+
+
+
 >>>>>>> origin/master
